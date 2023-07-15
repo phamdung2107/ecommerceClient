@@ -31,7 +31,7 @@ import productReviewsReducer from "./redux/product/productReviewsReducer";
 import deleteReviewReducer from "./redux/product/deleteReviewReducer";
 
 const persistConfig = {
-  key: "root",
+  key: "shop_app",
   version: 1,
   storage,
 };
