@@ -49,11 +49,10 @@ function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
   const [stripeApiKey, setStripeApiKey] = useState("");
+  const csrfToken = Cookies.get("csrfToken");
 
   async function getStripeApiKey() {
     const config = { headers: { "Content-Type": "application/json" } };
-
-    const csrfToken = Cookies.get("csrfToken");
 
     if (csrfToken) {
       config.headers["token"] = csrfToken;
@@ -62,6 +61,19 @@ function App() {
 
     setStripeApiKey(data.stripeApiKey);
   }
+
+  function checkCsrfToken() {
+    const isReloaded = sessionStorage.getItem("isReloaded");
+
+    if (!Cookies.get("csrfToken") && !isReloaded) {
+      localStorage.clear();
+      sessionStorage.setItem("isReloaded", true);
+      window.location.reload(true);
+    }
+  }
+
+  // Gọi hàm checkCsrfToken() khi trang được load
+  window.addEventListener("load", checkCsrfToken);
 
   useEffect(() => {
     WebFont.load({
