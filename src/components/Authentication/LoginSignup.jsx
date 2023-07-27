@@ -117,6 +117,11 @@ const LoginSignup = () => {
                 <button ref={switcherTab}></button>
               </div>
               <form className="loginForm" ref={loginTab} onSubmit={loginSubmit}>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <h6>Tài khoản Admin</h6>
+                  <span>TK: admin1@gmail.com</span>
+                  <span>MK: 123456789</span>
+                </div>
                 <div className="loginEmail">
                   <MailOutlineIcon />
                   <input
