@@ -62,18 +62,18 @@ function App() {
     setStripeApiKey(data.stripeApiKey);
   }
 
-  function checkCsrfToken() {
-    const isReloaded = sessionStorage.getItem("isReloaded");
+  // function checkCsrfToken() {
+  //   const isReloaded = sessionStorage.getItem("isReloaded");
 
-    if (!Cookies.get("csrfToken") && !isReloaded) {
-      localStorage.clear();
-      sessionStorage.setItem("isReloaded", true);
-      window.location.reload(true);
-    }
-  }
+  //   if (!Cookies.get("csrfToken") && !isReloaded) {
+  //     localStorage.clear();
+  //     sessionStorage.setItem("isReloaded", true);
+  //     window.location.reload(true);
+  //   }
+  // }
 
-  // Gọi hàm checkCsrfToken() khi trang được load
-  window.addEventListener("load", checkCsrfToken);
+  // // Gọi hàm checkCsrfToken() khi trang được load
+  // window.addEventListener("load", checkCsrfToken);
 
   useEffect(() => {
     WebFont.load({
