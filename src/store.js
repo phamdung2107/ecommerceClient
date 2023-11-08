@@ -1,15 +1,4 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { configureStore } from "@reduxjs/toolkit";
 import allUsersReducer from "./redux/user/allUsersReducer";
 import deleteProductReducer from "./redux/product/deleteProductReducer";
 import forgotPasswordReducer from "./redux/user/forgotPasswordReducer";
@@ -30,44 +19,26 @@ import orderReducer from "./redux/order/orderReducer";
 import productReviewsReducer from "./redux/product/productReviewsReducer";
 import deleteReviewReducer from "./redux/product/deleteReviewReducer";
 
-const persistConfig = {
-  key: "shop_app",
-  version: 1,
-  storage,
-};
-
-const rootReducer = combineReducers({
-  products: productReducer,
-  productDetails: productDetailsReducer,
-  user: userReducer,
-  profile: profileReducer,
-  cart: cartReducer,
-  favourite: favouriteReducer,
-  order: newOrderReducer,
-  myOrder: myOrdersReducer,
-  myOrderDetails: orderDetailsReducer,
-  newReview: newReviewReducer,
-  createProduct: newProductReducer,
-  deleteProduct: deleteProductReducer,
-  AllOrders: allOrdersReducer,
-  deleteOrder: orderReducer,
-  allUsers: allUsersReducer,
-  userDetails: userDetailsReducer,
-  deleteReview: deleteReviewReducer,
-  productReviews: productReviewsReducer,
-  forgotPassword: forgotPasswordReducer,
-});
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 export const store = configureStore({
-  reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+  reducer: {
+    products: productReducer,
+    productDetails: productDetailsReducer,
+    user: userReducer,
+    profile: profileReducer,
+    cart: cartReducer,
+    favourite: favouriteReducer,
+    order: newOrderReducer,
+    myOrder: myOrdersReducer,
+    myOrderDetails: orderDetailsReducer,
+    newReview: newReviewReducer,
+    createProduct: newProductReducer,
+    deleteProduct: deleteProductReducer,
+    AllOrders: allOrdersReducer,
+    deleteOrder: orderReducer,
+    allUsers: allUsersReducer,
+    userDetails: userDetailsReducer,
+    deleteReview: deleteReviewReducer,
+    productReviews: productReviewsReducer,
+    forgotPassword: forgotPasswordReducer,
+  },
 });
-
-export let persistor = persistStore(store);
