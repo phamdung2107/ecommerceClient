@@ -81,9 +81,10 @@ function App() {
         families: ["Roboto", "Droid Sans", "Chilanka"],
       },
     });
-
-    getStripeApiKey();
-  }, []);
+    if (csrfToken) {
+      getStripeApiKey();
+    }
+  }, [csrfToken]);
 
   return (
     <Router>
