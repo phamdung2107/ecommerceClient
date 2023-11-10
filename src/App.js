@@ -90,7 +90,7 @@ function App() {
     <Router>
       {isAuthenticated && <UserData user={user} />}
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/home" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/products" element={<Products />} />
         <Route exact path="/search" element={<Search />} />
@@ -192,7 +192,7 @@ function App() {
 
         <Route
           exact
-          path="dashboard"
+          path="/"
           element={
             <ProtectedRoute isAdmin={true}>
               <Dashboard />

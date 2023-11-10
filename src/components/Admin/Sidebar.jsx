@@ -12,13 +12,10 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <Link to="/">
-        <img
-          src="http://wp.alithemes.com/html/nest/demo/assets/imgs/theme/logo.svg"
-          alt="Ecommerce"
-        />
+        <h1 style={{ textAlign: "center" }}>ADMIN DASHBOARD</h1>
       </Link>
-      <Link to="/dashboard">
-        <p className="Dashboard__item" >
+      <Link to="/">
+        <p className="Dashboard__item">
           <DashboardIcon /> Dashboard
         </p>
       </Link>
