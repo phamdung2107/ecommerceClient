@@ -106,15 +106,14 @@ const LoginSignup = () => {
         <Loader />
       ) : (
         <>
-          <MetaData title="Login or Signup" />
+          <MetaData title="Login" />
           <div className="LoginSignUpContainer">
             <div className="LoginSignUpBox">
               <div>
                 <div className="login_signUp_toggle">
                   <p onClick={(e) => switchTabs(e, "login")}>LOGIN</p>
-                  <p onClick={(e) => switchTabs(e, "register")}>REGISTER</p>
                 </div>
-                <button ref={switcherTab}></button>
+                <button style={{ width: "100%" }} ref={switcherTab}></button>
               </div>
               <form className="loginForm" ref={loginTab} onSubmit={loginSubmit}>
                 <div style={{ display: "flex", flexDirection: "column" }}>
