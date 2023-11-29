@@ -37,31 +37,32 @@ const UserData = ({ user }) => {
   const dispatch = useDispatch();
 
   const options = [
-    // { icon: <HomeIcon />, name: "Home", func: home },
-    // { icon: <ListAltIcon />, name: "Orders", func: orders },
-    // {
-    //   icon: (
-    //     <ShoppingCartIcon
-    //     style={{
-    //      color: cartItems.length === 0 ? "" : "tomato",
-    //     }}
-    //     />
-    //   ),
-    //   name: `Cart (${cartItems.length})`,
-    //   func: cart,
-    // },
-    // {
-    //   icon:
-    //       <HeartIcon
-    //       style={{
-    //         color: favouriteItems.length === 0 ? "" : "tomato",
-    //        }}
-    //       />,
-    //   name: `Favourite (${favouriteItems.length})`,
-    //   func: favourite,
-    // },
-    // { icon: <PersonIcon />, name: "Profile", func: account },
-    // { icon: <Support />, name: "Report us", func: report },
+    { icon: <HomeIcon />, name: "Home", func: home },
+    { icon: <ListAltIcon />, name: "Orders", func: orders },
+    {
+      icon: (
+        <ShoppingCartIcon
+          style={{
+            color: cartItems.length === 0 ? "" : "tomato",
+          }}
+        />
+      ),
+      name: `Cart (${cartItems.length})`,
+      func: cart,
+    },
+    {
+      icon: (
+        <HeartIcon
+          style={{
+            color: favouriteItems.length === 0 ? "" : "tomato",
+          }}
+        />
+      ),
+      name: `Favourite (${favouriteItems.length})`,
+      func: favourite,
+    },
+    { icon: <PersonIcon />, name: "Profile", func: account },
+    { icon: <Support />, name: "Report us", func: report },
     { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },
   ];
 
